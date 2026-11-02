@@ -1,0 +1,8 @@
+# Standalone map generation and actual-PDF-render checks.
+matplotlib>=3.10,<3.11
+numpy>=2,<2.4
+basemap==2.0.0
+basemap-data==2.0.0
+basemap-data-hires==2.0.0
+Pillow>=10
+PyMuPDF>=1.26,<1.27

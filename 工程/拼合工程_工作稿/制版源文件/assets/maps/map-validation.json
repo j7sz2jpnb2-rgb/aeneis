@@ -1,0 +1,102 @@
+﻿{
+  "status": "当前三张地图PDF均为185×260mm；旧源图记录仅作为历史，非当前资产校验值",
+  "current_pdf_page_mm": [
+    185,
+    260
+  ],
+  "historical_source_validation_20261006": {
+    "date": "2026-10-06",
+    "pages": 3,
+    "size_mm": [
+      185,
+      254.375
+    ],
+    "preview_pixels": [
+      1200,
+      1650
+    ],
+    "approved_source_sha256": "7a4b3da0b0b88c6e541a01bbac93a7222141b90c0d66dc08faed71c18ce6da85",
+    "single_page_pdf_render": "identical to corresponding approved combined PDF page at 150 dpi",
+    "assets": {
+      "aeneas-voyage.pdf": "9eba60b327b0e873845159bc106c0fff3ddff65449035efda35cf2f3223e16a6",
+      "aeneas-voyage.png": "a4dd7b488ee9b99926a36796eaade3f627c194029d6e22241eecd99af53e6d0c",
+      "aeneas-voyage.svg": "9f0d7a86a5e5680a4947b9a4ff4aae7e1ad893705c304a9487b408f96464f481",
+      "latium-tiber.pdf": "0263ae63f80e51f75c40366f8b662d4e04f8a7b2885dfef5fd3ba2a3eddee6e8",
+      "latium-tiber.png": "9017a75cf3f62a0db8e8d4caa7beb121c4ea9999409b3db7741d75b3a8d7df21",
+      "latium-tiber.svg": "0c1e9ae3d956ecef1d11a8240ca5cf06b5c01d36d0f14370f992b55bf05387c8",
+      "strabo-world.pdf": "8f4f3c3f3f78956b2fd630f0963c3f31dab3ea1f6c966c1c47bd804d35f0727d",
+      "strabo-world.png": "b3425f8e52c9f8d6bb701e34ec88e0374aff76a1ccd4c33a1a43c4ffa17fc8c2",
+      "strabo-world.svg": "5b4caba113703d24651f598694804f5579c63adb94c5522965ca83ed86cabb3b"
+    }
+  },
+  "map2_design_revision_20261007": {
+    "date": "2026-10-07",
+    "page_mm": [
+      185,
+      260
+    ],
+    "arrow_count": 14,
+    "arrow_head_scale": 1.25,
+    "arrow_tips_and_routes_preserved": true,
+    "antandros_label_shift_mm": -3.4309100900909115,
+    "new_region_label": "拉提乌姆",
+    "removed_annotation": "III·回叙",
+    "aegean_label_repositioned": true,
+    "route_junction_white_outline_px": 1.6,
+    "port_coordinates_unchanged": true,
+    "original_stream_operators": 49486,
+    "changed_stream_operators": 37,
+    "raster_bytes_unchanged": true,
+    "embedded_fonts": [
+      "/AAAAAA+AeneisMapSans-550",
+      "/AAAAAA+AeneisMapLabel220261007",
+      "/AAAAAA+AeneisMapCredits220261007",
+      "/AAAAAA+AeneisMap2Region20261007",
+      "/AAAAAA+AeneisMapSans-650",
+      "/AAAAAA+AeneisMapSans-400",
+      "/AAAAAB+AeneisMapSans-400"
+    ],
+    "output_bytes": 1346819,
+    "local_book_compilation": false,
+    "hash_calculation": false,
+    "antandros_label_right_clearance_mm": 1.9584778430935774,
+    "visual_review": "PDFium与Poppler全页及局部检查：末字完整、区域提示无重叠、箭头适度增强",
+    "visual_review_passed": true
+  },
+  "map2_crete_connection_revision_20261007": {
+    "date": "2026-10-07",
+    "marker": "克里特：约略停靠点，非佩尔伽墨亚遗址坐标",
+    "old_svg_center": [
+      932.5,
+      951.1
+    ],
+    "new_svg_center": [
+      939.1,
+      937.7
+    ],
+    "illustrative_route_node_lon_lat": [
+      25.1,
+      35.43
+    ],
+    "geometry_interpretation": "将原岛内约略标记连接到既有近岸航程示意节点；不认定精确港址",
+    "marker_and_both_route_endpoints_coincident": true,
+    "leader_start_updated": true,
+    "changed_stream_operators": 6,
+    "all_other_stream_operators_unchanged": true,
+    "text_unchanged": true,
+    "image_data_unchanged": true,
+    "arrow_count_and_size_unchanged": true,
+    "page_mm": [
+      185,
+      260
+    ],
+    "research_primary_text": "https://bcs.fltr.ucl.ac.be/virg/V03-001-191.html",
+    "research_note": "Aeneid 3.131–135：抵达克里特、建立Pergamea、船拖上岸；不提供可唯一识别现代港址的坐标。注释中Pergamea定位存在不确定性，不标成现代精确码头。",
+    "research_commentary": "https://bcs.fltr.ucl.ac.be/virg/V03-001-191.html",
+    "pdf_bytes": 1346917,
+    "local_book_compilation": false,
+    "hash_calculation": false,
+    "visual_review": "PDFium局部及Poppler全页验看：白点与抵达／离开航线同心，原先约2.1mm脱节消除，引线与文字清晰",
+    "visual_review_passed": true
+  }
+}

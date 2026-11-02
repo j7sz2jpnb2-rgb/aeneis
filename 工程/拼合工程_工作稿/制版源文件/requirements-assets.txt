@@ -1,0 +1,8 @@
+Pillow>=10
+numpy>=1.26
+matplotlib>=3.8
+basemap>=2.0
+
+weasyprint>=68
+
+pypdf>=5

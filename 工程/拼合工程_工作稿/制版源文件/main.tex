@@ -1,0 +1,98 @@
+\input{layout_core.tex}
+\begin{document}
+\pagenumbering{roman}
+\thispagestyle{empty}
+\vspace*{35mm}
+\begin{center}
+  {\latinfont\fontsize{12}{14}\selectfont\color{softgray}\addfontfeatures{LetterSpace=16} AENEIS\par}
+  \vspace{8mm}
+  {\titlecjk\bfseries\fontsize{28}{34}\selectfont\color{accent}埃涅阿斯纪\par}
+  \vspace{5mm}
+  {\color{rulegray}\rule{31mm}{0.45pt}\par}
+  \vspace{9mm}
+  {\latinfont\fontsize{9.5}{12}\selectfont\color{softgray}\addfontfeatures{LetterSpace=6} PUBLIUS VERGILIUS MARO\par}
+  \vfill
+  {\titlecjk\fontsize{10.5}{15}\selectfont 普布利乌斯\nameperiod 维吉尔\nameperiod 马罗\ 著\par}
+  \vspace{2mm}
+  {\fontsize{10.5}{15}\selectfont ChatGPT \& Novelist\hspace{0.9em}译编\par}
+  \vspace{20mm}
+\end{center}
+\clearpage
+
+\thispagestyle{empty}
+\vspace*{27mm}
+\begin{center}
+  {\titlecjk\bfseries\fontsize{18}{24}\selectfont\color{accent}埃涅阿斯纪\par}
+  \vspace{5mm}
+  {\fontsize{10.5}{15}\selectfont 第一至十二卷 · 正文\par}
+  \vspace{3mm}
+  {\fontsize{9.5}{14}\selectfont\color{softgray}中文自由体诗译本与注释\par}
+  \vspace{22mm}
+\end{center}
+\clearpage
+
+% 多页目录的所有页统一采用前置页样式，防止首/续页落回 plain 页眉。
+\pagestyle{frontplain}
+\begingroup
+\makeatletter
+\let\ps@plain\ps@frontplain
+\makeatother
+\tableofcontents
+\thispagestyle{frontplain}
+\clearpage
+\endgroup
+
+\phantomsection
+\pdfbookmark[0]{体例说明}{front.conventions}
+\manualtocchapter{体例说明}{front.conventions.0}
+\thispagestyle{frontplain}
+\vspace*{20mm}
+\begin{center}
+{\titlecjk\bfseries\fontsize{18}{24}\selectfont\color{accent}体例说明\par}
+\end{center}
+\vspace{10mm}
+\input{content/frontmatter_current.tex}
+
+\clearpage
+\pagenumbering{arabic}
+\pagestyle{running}
+\bookchapter{第一卷}{LIBER I}{1}
+\input{content/book01_current.tex}
+\bookend{第一卷完}
+\bookchapter{第二卷}{LIBER II}{2}
+\input{content/book02_current.tex}
+\bookend{第二卷完}
+\bookchapter{第三卷}{LIBER III}{3}
+\input{content/book03_current.tex}
+\bookend{第三卷完}
+\bookchapter{第四卷}{LIBER IV}{4}
+\input{content/book04_current.tex}
+\bookend{第四卷完}
+\bookchapter{第五卷}{LIBER V}{5}
+\input{content/book05_current.tex}
+\bookend{第五卷完}
+\bookchapter{第六卷}{LIBER VI}{6}
+\input{content/book06_current.tex}
+\bookend{第六卷完}
+\bookchapter{第七卷}{LIBER VII}{7}
+\input{content/book07_current.tex}
+\bookend{第七卷完}
+\bookchapter{第八卷}{LIBER VIII}{8}
+\input{content/book08_current.tex}
+\bookend{第八卷完}
+\bookchapter{第九卷}{LIBER IX}{9}
+\input{content/book09_current.tex}
+\bookend{第九卷完}
+\bookchapter{第十卷}{LIBER X}{10}
+\input{content/book10_current.tex}
+\bookend{第十卷完}
+\bookchapter{第十一卷}{LIBER XI}{11}
+\input{content/book11_current.tex}
+\bookend{第十一卷完}
+\bookchapter{第十二卷}{LIBER XII}{12}
+\input{content/book12_current.tex}
+\bookend{第十二卷完}
+\illustrationcredits
+\input{content/glossary_current.tex}
+\editioncolophon
+\end{document}

@@ -1,0 +1,39 @@
+{
+  "public_name": "Novelist",
+  "douban_numeric_id": "252994365",
+  "douban_profile_url": "https://www.douban.com/people/252994365/",
+  "edition_display": "第四版",
+  "edition_number": 4,
+  "publication_date_display": "2026.10.8",
+  "publication_date_iso": "2026-10-08",
+  "errata_channel": "豆瓣私信",
+  "pdf_author": "Novelist",
+  "font_description": "由编译AI按最终实际字体填写",
+  "page_mm": [
+    185,
+    260
+  ],
+  "qr_size_mm": 35,
+  "qr_error_correction": "M",
+  "qr_quiet_zone_modules": 4,
+  "qr_url_verified": true,
+  "remaining_user_fields": [],
+  "remaining_production_fields": [
+    "font_description"
+  ],
+  "filename_suggestion": "Aeneid-zh_ed4_2026-10-08.pdf",
+  "qr_layout": "右栏下部35mm；说明“Novelist 的豆瓣主页”为9pt常规字重，无下划线，保留点击",
+  "qr_device_scan_note": "通过缩小图独立解码；iPhone扫描iPad屏幕须实际设备复核，软件测试不等于设备实测。",
+  "visible_douban_id": "豆瓣 ID：252994365，位于公开署名下方",
+  "qr_ink_alignment": "图案墨迹左沿对齐右栏文字；完整四模块静区随图外移约3.78mm",
+  "typographic_hierarchy": {
+    "edition_pt": 24,
+    "edition_weight": 700,
+    "name_date_pt": 14,
+    "name_date_weight": 500,
+    "support_pt": 9,
+    "support_weight": 400,
+    "label_weight": 500
+  },
+  "credit_label": "制作与发布"
+}

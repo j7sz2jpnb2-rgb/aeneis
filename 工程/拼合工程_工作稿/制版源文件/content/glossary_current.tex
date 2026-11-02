@@ -1,0 +1,175 @@
+% 用户确认的书籍双栏：每栏包含完整词条；词头无衬线，释义沿用正文宋体。
+\clearpage
+\phantomsection
+\pdfbookmark[0]{专名与术语表}{back.glossary}
+\manualtocchapter{专名与术语表}{back.glossary.0}
+\markboth{专名与术语表}{专名与术语表}
+\thispagestyle{chapterstart}
+\begingroup
+% 固定附录自身行距，避免 ctex 的全局伸展倍率改变所定字阶。
+\setstretch{1}
+\vspace*{8mm}
+\noindent
+\begin{minipage}[t]{0.515\textwidth}
+  \vspace{0pt}\RaggedRight
+  {\glosslatin\glosscjk\bfseries\fontsize{34}{39}\selectfont\color{black!92}专名与\par 术语表\par}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.425\textwidth}
+  \vspace{1.6mm}\RaggedRight
+  {\glosslatin\fontsize{8}{12}\selectfont\color{accent}\addfontfeatures{LetterSpace=3}NOMINA ET VOCABULA\par}
+  \vspace{5mm}
+  {\glosscjk\fontsize{8.6}{12.4}\selectfont\color{footgray}
+  以下收录阅读中反复出现、意义容易分散或较易混淆的词语与专名。本表分为六类，各类按词条中第一个拉丁词或名称的字母顺序排列；异名合列于同一词条。\par}
+\end{minipage}\par
+\vspace{8mm}
+\setlength{\columnsep}{8mm}
+\setlength{\columnseprule}{0pt}
+\setlength{\multicolsep}{0pt}
+\newif\ifglossnewsection
+\glossnewsectionfalse
+\newcommand{\glosssectiontitle}{}
+\newcommand{\readerglosssection}[2]{%
+  \par\addvspace{5.5mm}%
+  \def\glosssectiontitle{#2}\glossnewsectiontrue%
+}
+\newcommand{\readerglossentry}[3]{%
+  \par\addvspace{2.5mm}\noindent%
+  % 分类标题和首条同置一块，随双栏分页一起移动，避免孤立标题。
+  \begin{minipage}[t]{\linewidth}%
+    \vspace{0pt}\RaggedRight%
+    \ifglossnewsection%
+      {\glosslatin\glosscjk\bfseries\fontsize{14}{18}\selectfont\color{black!92}\glosssectiontitle\par}%
+      \vspace{3.5mm}%
+    \fi%
+    {\glosslatin\glosscjk\bfseries\fontsize{9.8}{13.4}\selectfont\color{black!92}#1}%
+    \nobreak\hspace{0.6em}%
+    {\glosscjk\mdseries\fontsize{9}{13.4}\selectfont\color{accent}#2\par}%
+    \vspace{0.65mm}%
+    {\normalfont\rmfamily\fontsize{9.4}{13.4}\selectfont\color{black!92}#3\par}%
+  \end{minipage}\par%
+  \glossnewsectionfalse%
+}
+\begin{multicols}{2}
+\readerglosssection{01}{常用词}
+\readerglossentry{arma}{兵器；武装；战争}{可指具体的甲兵，也可泛指战争。开篇 \textit{arma virumque} 中的 \textit{arma} 就是后一义。}
+\readerglossentry{augurium}{占兆；兆示；占卜之术}{可指占卜或观察征兆所得的预示，也可泛指神谕和预兆；还可指占卜之术。}
+\readerglossentry{auspicium}{占兆；主持权}{原与观鸟占兆相连，也可指由神兆认可的主持、统率和权力。}
+\readerglossentry{coniugium}{婚姻；夫妻结合}{婚姻或夫妻结合。第四卷中，狄多把她与埃涅阿斯的结合称作\textit{coniugium}。}
+\readerglossentry{coniunx}{配偶}{可以是丈夫，也可以是妻子；这个词本身不标男女。}
+\readerglossentry{Fama}{名声；传言}{可以是一个人的名声，也可以是流传的消息。第四卷又把 Fama 写成一个四处飞行、传播传闻的怪物。}
+\readerglossentry{fas}{神所许可；合乎神意}{神明所允许的事。\textit{fas est} 常可译作“这是神所允许的”或“这样做无妨”。}
+\readerglossentry{fatum}{命运；命定之事}{已经注定要发生的事，也可指一个人的死期或结局。}
+\readerglossentry{fides}{信义；信用；信任；信念}{守约而值得信赖，也可以说对别人或某事的信任、信念。人格化为神祇时指信义女神。}
+\readerglossentry{foedus}{盟约}{郑重立下的约定，常伴随誓言和祭牲。第十二卷决斗前的约定就是 \textit{foedus}。}
+\readerglossentry{Fortuna}{时运；际遇}{人的好运、厄运和遭际；写作神名时即福尔图娜。}
+\readerglossentry{furor}{狂怒；疯狂}{猛烈的怒火或激情，使人失去自制。}
+\readerglossentry{hospes}{宾客；主人}{拉丁语用同一个词称宾主双方。}
+\readerglossentry{hospitium}{宾主之谊；款待}{因接待客人而建立的宾主关系，通常包含保护、信义和回报，也可以延续多年。}
+\readerglossentry{imperium}{命令权；统治权}{将领或官员的指挥权，也可指国家的统治。}
+\readerglossentry{ius}{法；权利}{法律、权利和正当名分，也用于带有神圣约束的誓约；\textit{fas}则侧重神明所许可的事。}
+\readerglossentry{munus}{礼物；奖赏；职责}{可指赠礼、比赛的奖品或应尽的职责；为死者举行的祭赛或献礼也可称 \textit{munus}。}
+\readerglossentry{nefas}{神所不容；大罪}{神明所不允许的事，通常强调神圣禁忌或严重罪行，常与\textit{fas}相对；也可夸张地指极不堪的事。}
+\readerglossentry{nomen}{名字；名号}{个人、家族或民族的名称。终卷朱庇特与朱诺谈到特洛伊人和拉丁人的 \textit{nomen}，说的是新民族以后叫什么。}
+\readerglossentry{numen}{神意；神威；神明}{神明显出的意旨或力量；也可直接用来称神。}
+\readerglossentry{omen}{征兆；预兆}{一句话、一个声音、一只鸟或一件偶然发生的事，都可能被看作吉凶的预示。}
+\readerglossentry{pietas}{虔敬；尽责}{对神明的敬奉，也包括对父母、亲族、同伴和祖国应尽的情分与责任。埃涅阿斯常被称为\textit{pius}。}
+\readerglossentry{religio}{敬畏；神圣的顾忌}{面对神明、祭仪或其他神圣事物时的敬畏和顾忌，也可指由此产生的禁忌。}
+\readerglossentry{sacra}{圣物；祭品；祭仪}{属于神明的圣物、祭品和仪式。特洛伊人逃离故土时带走的 \textit{sacra}，包括必须继续供奉和保存的神圣之物。}
+\readerglossentry{sors}{签；份额；命数}{可指抽签用的签、抽签及所得份额，也可指命数、结局或神谕。}
+\readerglossentry{virtus}{勇武；才干}{常指行动和战斗中显出的勇气与本领，也有较宽的“才能、优秀”之意。}
+\readerglossentry{votum}{誓愿；祈愿}{向神许下的誓愿，也可指祈愿或愿望；许愿时若承诺了献礼，得到所求后须履行许诺的献祭或奉献。}
+\readerglosssection{02}{祭仪、制度和重要事物}
+\readerglossentry{aureus ramus}{金枝}{献给普洛塞庇娜的金色枝条。西比尔告诉埃涅阿斯，他须先找到金枝，才可进入冥界；后来埃涅阿斯把它固定在普洛塞庇娜的门槛上，作为献给女神的礼物。}
+\readerglossentry{balteus Pallantis}{帕拉斯的剑带}{图尔努斯杀死帕拉斯后，把他的剑带当作战利品佩在身上。最后决斗时，埃涅阿斯看见它，随即杀死图尔努斯。}
+\readerglossentry{Belli portae}{战争之门}{拉提努斯拒绝开门，朱诺亲自把门推开，战争由此开始。罗马也有战时开启、和平时关闭雅努斯神门的习俗。}
+\readerglossentry{inferiae}{献给死者的祭品}{葬礼、墓祭或纪念死者时献给亡魂的供物，如酒、食物、牲畜或鲜血。}
+\readerglossentry{ludi}{祭赛；游戏}{为神明或死者举行的比赛和表演。第五卷纪念安喀塞斯的赛会包括赛船、赛跑、拳斗、射箭和少年骑阵。}
+\readerglossentry{lusus Troiae}{特洛伊骑阵}{贵族少年分队骑马穿梭演练的表演。诗中由阿斯卡尼乌斯率领，罗马后来也有同名的少年骑术表演。}
+\readerglossentry{Palladium}{帕拉斯神像；帕拉狄翁}{帕拉斯／弥涅耳瓦的神像，特洛伊人把城市的安危同它相连。希腊人曾在攻城期间把它偷走。}
+\readerglossentry{piaculum}{赎罪祭；应赎之罪}{为罪过、污染或冒犯神明而举行的补偿性祭礼；也可指那件必须赎偿的罪过本身。}
+\readerglossentry{porta cornea / porta eburna}{角门／象牙门}{冥界的两扇睡眠之门。真正的幽魂由角门出去，虚假的梦由象牙门出去；埃涅阿斯最后从象牙门返回人间。}
+\readerglossentry{spolia opima}{主帅战利品}{统帅在单独交战中亲手杀死敌方统帅后取下的甲胄，罗马传统献给朱庇特·费雷特里乌斯，只承认极少数这样的战功。第六卷859行则写献给父神奎里努斯，见该处注释。}
+\readerglossentry{triumphus}{凯旋式}{获准凯旋的统帅乘车入城，军队、俘虏和战利品随行。埃涅阿斯盾牌上的奥古斯都胜利写到这样的场面。}
+\readerglossentry{tropaeum}{胜利纪念物}{把敌人的甲胄挂在树干或柱子上立成的胜利标志。埃涅阿斯用墨泽提乌斯的兵甲立起的纪念物就是这一类。}
+\readerglosssection{03}{父称和谱系称谓}
+\readerglossentry{Aeacides}{埃阿科斯后裔}{“埃阿科斯的后裔”。诗中可指阿喀琉斯、涅俄普托勒摩斯，也用于马其顿王珀耳修斯。}
+\readerglossentry{Aeolides}{埃俄卢斯的后裔}{父称／谱系称谓，字面意为“埃俄卢斯的后裔”，具体所指随上下文而定；得伊福玻斯以此辱称乌利塞斯时，借用了把他与西叙福斯／埃俄卢斯谱系相连的敌意传统。}
+\readerglossentry{Atridae}{阿特柔斯二子}{阿特柔斯的两个儿子，即阿伽门农和墨涅拉俄斯。}
+\readerglossentry{Hyrtacides}{许耳塔库斯之子}{“许耳塔库斯的儿子”。诗中可指希波科翁，也可指尼苏斯。}
+\readerglossentry{Pelides}{珀琉斯后裔}{通常指阿喀琉斯，也可指他的儿子涅俄普托勒摩斯。}
+\readerglossentry{Saturnia}{萨图尔努斯之女}{朱诺的父称，字面意为“萨图尔努斯之女”。参见“朱诺 Iuno / Juno”。}
+\readerglossentry{Tydides}{提丢斯之子}{狄俄墨得斯的父称。}
+\readerglosssection{04}{人物}
+\readerglossentry{Achates}{阿卡忒斯}{埃涅阿斯最亲近的特洛伊同伴之一，常随他行动。}
+\readerglossentry{Achilles}{阿喀琉斯}{珀琉斯与忒提斯之子，希腊联军最强的战士之一，杀死赫克托耳；诗中也常以父称 \textit{Pelides} 或谱系称谓 \textit{Aeacides} 指他。其子是皮洛士／涅俄普托勒摩斯。}
+\readerglossentry{Aeneas}{埃涅阿斯}{特洛伊王族，安喀塞斯与维纳斯之子，阿斯卡尼乌斯之父。特洛伊陷落后率同伴西行，最终到达拉提乌姆并卷入战争。罗马传统把他的后裔同阿尔巴隆伽和罗马相连。}
+\readerglossentry{Amata}{阿玛塔}{拉提努斯之妻、拉维尼娅之母。反对女儿嫁给埃涅阿斯，支持图尔努斯；战争末期误以为图尔努斯已死，遂自尽。}
+\readerglossentry{Anchises}{安喀塞斯}{埃涅阿斯之父。逃离特洛伊时由儿子背出城，后来死于西西里；第六卷埃涅阿斯在冥界与他重逢，他在那里向儿子指出未来的罗马人物。}
+\readerglossentry{Andromache}{安德罗玛刻}{赫克托耳的遗孀。特洛伊灭亡后辗转来到伊庇鲁斯，与赫勒努斯生活在一起；埃涅阿斯经过那里时与她重逢。}
+\readerglossentry{Anna}{安娜}{狄多的妹妹和知己。狄多爱上埃涅阿斯后，安娜曾鼓励她接受这段感情。}
+\readerglossentry{Ascanius / Iulus}{阿斯卡尼乌斯／尤卢斯}{埃涅阿斯与克瑞乌萨之子。两个名字指同一人；罗马的尤利乌斯家族把自己的祖先追溯到尤卢斯。}
+\readerglossentry{Assaracus}{阿萨剌科斯}{特洛伊王族祖先，特罗斯之子、安喀塞斯的祖父，属于埃涅阿斯一支的祖系。}
+\readerglossentry{Camilla}{卡米拉}{墨塔布斯之女，自幼献给狄安娜的沃尔斯基女战士和骑兵首领。她率军参加意大利战争，后来被阿耳伦斯从远处投枪杀死。}
+\readerglossentry{Creusa}{克瑞乌萨}{埃涅阿斯之妻、阿斯卡尼乌斯之母。特洛伊陷落时失散身亡，亡魂向埃涅阿斯预告他将前往西方。}
+\readerglossentry{Dardanus}{达耳达诺斯}{特洛伊王族的远祖之一，诗中 Dardani、Dardanidae、Dardanius 等称谓都由其名衍生，常用来指特洛伊人或埃涅阿斯一系。}
+\readerglossentry{Dido}{狄多}{迦太基女王。离开腓尼基后在北非建立迦太基，与抵达当地的埃涅阿斯相爱；埃涅阿斯奉神命离去后，她自尽。}
+\readerglossentry{Diomedes}{狄俄墨得斯}{希腊英雄、提丢斯之子，特洛伊战争中的名将。来到意大利后拒绝再次与特洛伊人开战。}
+\readerglossentry{Drances}{德兰刻斯}{拉丁贵族，以口才见长，与图尔努斯关系恶劣。主张停战，并在议事中公开攻击图尔努斯。}
+\readerglossentry{Euander}{厄万德}{来自阿卡狄亚的国王，在未来罗马城址附近建立帕兰忒乌姆。接待埃涅阿斯，并把儿子帕拉斯托付给他。}
+\readerglossentry{Euryalus}{欧律阿卢斯}{年轻的特洛伊战士，尼苏斯的亲密同伴。第五卷参加赛跑，第九卷与尼苏斯夜袭敌营，最终被沃尔肯斯杀死。}
+\readerglossentry{Hector}{赫克托耳}{普里阿摩斯之子，特洛伊最重要的守将。被阿喀琉斯杀死；特洛伊陷落之夜，他的亡魂在梦中警告埃涅阿斯逃走。}
+\readerglossentry{Helenus}{赫勒努斯}{普里阿摩斯之子，特洛伊预言者。后来在伊庇鲁斯为王，与安德罗玛刻共同接待埃涅阿斯，并告诉他前往意大利的航路和征兆。}
+\readerglossentry{Hercules}{赫尔库勒斯}{希腊英雄，朱庇特之子。第八卷详细讲到他在意大利杀死卡库斯的故事；诗中也常以 \textit{Alcides} 等称号称他。}
+\readerglossentry{Laocoon}{拉奥孔}{特洛伊祭司，强烈反对把木马拖进城；后来与两个儿子一同被海蛇缠死。}
+\readerglossentry{Latinus}{拉提努斯}{拉提乌姆国王，拉维尼娅之父。神谕告诉他女儿不应嫁给本地人，他因而愿意接纳埃涅阿斯，却没能阻止战争。}
+\readerglossentry{Lausus}{劳苏斯}{墨泽提乌斯之子。为保护父亲挡在埃涅阿斯面前，被埃涅阿斯杀死。}
+\readerglossentry{Lavinia}{拉维尼娅}{拉提努斯与阿玛塔之女。她的婚姻成为埃涅阿斯与图尔努斯冲突的直接缘由之一。}
+\readerglossentry{Mezentius}{墨泽提乌斯}{被伊特鲁里亚人驱逐的前王，与图尔努斯结盟。儿子劳苏斯为救他而死后，他重新上阵，最后被埃涅阿斯杀死。}
+\readerglossentry{Misenus}{米塞努斯}{号手，先追随赫克托耳，后来成为埃涅阿斯的同伴。到达库迈后以号声向众神挑战；相传妒忌的特里同将他沉入海中。他的葬礼发生在埃涅阿斯入冥之前。}
+\readerglossentry{Nisus}{尼苏斯}{特洛伊战士，欧律阿卢斯的亲密同伴。两人夜间潜入敌营，返程时被发现；尼苏斯为救欧律阿卢斯而死。}
+\readerglossentry{Orion}{俄里翁}{神话中的巨人猎手，死后化为俄里翁星座；诗中既以其星座表现航海与天气，也以他涉海、肩负巨木的巨人形象比拟墨泽提乌斯。}
+\readerglossentry{Palinurus}{帕利努鲁斯}{埃涅阿斯船队的舵手。航行至意大利前夕落海，后来在岸上遇害；埃涅阿斯在冥界入口处再见到他的亡魂。}
+\readerglossentry{Pallas}{帕拉斯}{厄万德之子，随埃涅阿斯出战。图尔努斯杀死他并夺走剑带；最后决斗时，埃涅阿斯看见这条剑带后杀死图尔努斯。}
+\readerglossentry{Priamus}{普里阿摩斯}{特洛伊老王，赫克托耳等人的父亲。特洛伊陷落之夜在宫中被皮洛士杀死。}
+\readerglossentry{Pyrrhus / Neoptolemus}{皮洛士／涅俄普托勒摩斯}{阿喀琉斯之子。木马中的希腊战士之一，在特洛伊陷落时杀死普里阿摩斯；后来又与赫勒努斯、安德罗玛刻的故事相连。}
+\readerglossentry{Sibylla / Deiphobe}{库迈西比尔／得伊福柏}{库迈的阿波罗女先知，名得伊福柏，父名格劳库斯。她指引埃涅阿斯取得金枝，并陪他进入冥界。}
+\readerglossentry{Sinon}{西农}{希腊人，故意留在特洛伊城外，以谎言说服特洛伊人把木马拖进城中。}
+\readerglossentry{Turnus}{图尔努斯}{鲁图利人首领，道努斯之子、尤图耳娜之兄，也是拉维尼娅的求婚者。埃涅阿斯来到拉提乌姆后，他成为最主要的战场对手，最后与埃涅阿斯决斗。}
+\readerglossentry{Ulixes / Odysseus}{乌利塞斯／奥德修斯}{伊塔卡国王，特洛伊战争中的希腊英雄。Ulixes 是 Odysseus 的拉丁形式；中文常见“乌利塞斯”与“奥德修斯”两种名称，二者指同一人。}
+\readerglosssection{05}{神祇}
+\readerglossentry{Allecto}{阿勒克托}{复仇女神之一。朱诺把她从冥界召来，她先后煽动阿玛塔、图尔努斯和拉丁乡民，使冲突转成战争。}
+\readerglossentry{Apollo / Phoebus}{阿波罗／福玻斯}{预言、弓箭和音乐之神，也称福玻斯。特洛伊人的航程多次受到他的神谕指引；库迈西比尔也是他的女先知。}
+\readerglossentry{Bacchus / Liber}{巴克科斯／利柏尔}{酒神，即希腊的狄俄尼索斯；诗中又可见 Lyaeus、Lenaeus 等称号。第七卷阿玛塔假托他的神力进入山林并发动酒神狂仪。}
+\readerglossentry{Cybele / Cybebe / Magna Mater}{库柏勒／库柏柏}{大母神；Cybebe 为同一女神的异名。与佛里吉亚和伊达山相连。埃涅阿斯的船材来自她的圣林，后来这些船获准化为海中神女。}
+\readerglossentry{Diana}{狄安娜}{狩猎与贞女之神。与希波吕托斯的复生故事相连，卡米拉也自幼献给她。}
+\readerglossentry{Dis}{狄斯}{冥界之神，与普洛塞庇娜共同统治地下世界；其名字有时也代指冥府。}
+\readerglossentry{Faunus}{法乌努斯}{拉提努斯之父、意大利的古老神祇。拉提努斯通过他的神谕得知拉维尼娅不能嫁给本地求婚者。}
+\readerglossentry{Hecate}{赫卡忒}{与夜、岔路、魔法和冥界相连的女神。第六卷入冥前的祭仪中，库迈西比尔呼求她。}
+\readerglossentry{Iuno / Juno}{朱诺}{朱庇特之妻、萨图尔努斯之女；诗中常以父称 \textit{Saturnia} 称她。她长期敌视特洛伊人，从第一卷的风暴一直干预到意大利战争；终卷终于停止阻挠。}
+\readerglossentry{Iuppiter / Jupiter}{朱庇特}{众神之王。埃涅阿斯的命运多次由他的预言加以确认；终卷他与朱诺商定特洛伊人和拉丁人合为一族之后的安排。}
+\readerglossentry{Juturna}{尤图耳娜}{图尔努斯的妹妹、水泽女神。最后决战中受朱诺之命多次帮助哥哥躲开单独决斗。}
+\readerglossentry{Mars / Mavors / Gradivus}{玛尔斯／玛沃耳斯／格拉狄乌斯}{战神。玛沃耳斯（Mavors）是玛尔斯（Mars）的异名，格拉狄乌斯（Gradivus）是他的称号。}
+\readerglossentry{Mercurius}{墨丘利}{众神的使者。朱庇特派他提醒埃涅阿斯离开迦太基，继续前往意大利。}
+\readerglossentry{Minerva / Pallas}{弥涅耳瓦／帕拉斯}{智慧、技艺与战争女神。诗中 Pallas 也可指厄万德之子帕拉斯，须依语境区分；帕拉狄翁则是与她相连的特洛伊神像。}
+\readerglossentry{Neptunus}{涅普顿}{海神。第一卷平息埃俄卢斯放出的风暴，后来又帮助埃涅阿斯的船队渡海。}
+\readerglossentry{Penates}{家神}{家庭、家族以及城市共同体供奉的守护神。埃涅阿斯把特洛伊的家神带往意大利，它们也随流亡者迁往新的家园。}
+\readerglossentry{Proserpina}{普洛塞庇娜}{冥后。埃涅阿斯入冥前寻找的金枝是献给她的礼物。}
+\readerglossentry{Tiberinus}{台伯河神}{台伯河的神。向睡梦中的埃涅阿斯显现，告诉他去寻找厄万德，并预告白母猪的征兆。}
+\readerglossentry{Trivia}{特里维亚}{与狄安娜／赫卡忒相连的三岔路女神称号。第六卷译作“三岔路女神”，其他出现处译作“特里维亚”。}
+\readerglossentry{Venus}{维纳斯}{爱与美之女神，埃涅阿斯之母。多次保护儿子，并请武尔坎努斯为他打造新甲胄。}
+\readerglossentry{Vulcanus}{武尔坎努斯}{火与锻造之神，维纳斯之夫。为埃涅阿斯打造盾牌、头盔、胸甲等武器。}
+\readerglosssection{06}{地名}
+\readerglossentry{Alba Longa}{阿尔巴隆伽}{罗马之前的拉丁王城。预言中，埃涅阿斯的后代将在这里延续王统。}
+\readerglossentry{Avernus}{阿韦尔努斯}{库迈附近的湖和冥界入口所在地区。}
+\readerglossentry{Carthago}{迦太基}{狄多建立的北非城市。埃涅阿斯漂流至此并与狄多相爱；诗中的预言也提到未来罗马与迦太基的战争。}
+\readerglossentry{Cumae}{库迈}{意大利西岸的希腊殖民城，阿波罗神庙和西比尔洞窟所在地。埃涅阿斯从这里前往冥界入口。}
+\readerglossentry{Etruria / Etrusci / Tusci / Tyrrheni}{伊特鲁里亚／伊特鲁里亚人}{意大利中部地区及其居民。诗中可用\textit{Etruscus}、\textit{Tuscus}、\textit{Tyrrhenus}等相关词指称；\textit{Tyrrhenus}修饰海域时指第勒尼安海。第十一卷612行则作人名，译“提瑞努斯”，指与阿孔透斯交战的伊特鲁里亚骑士。}
+\readerglossentry{Italia}{意大利}{埃涅阿斯受命前往的土地。诗中还常以 Ausonia、Hesperia 等名称指意大利。}
+\readerglossentry{Latium}{拉提乌姆}{意大利中西部地区，拉提努斯统治的土地，也是埃涅阿斯最终到达并作战的地方。}
+\readerglossentry{Laurentum}{劳伦图姆}{拉提努斯的王城及其附近地区，意大利战争的主要地点之一。}
+\readerglossentry{Pallanteum}{帕兰忒乌姆}{厄万德在台伯河畔建立的阿卡狄亚聚落，位于未来罗马城址附近。埃涅阿斯在这里与厄万德结盟。}
+\readerglossentry{Roma}{罗马}{埃涅阿斯本人没有建立罗马。第六卷安喀塞斯向他展示未来的罗马人物，第八卷的新盾牌又刻着后世罗马的故事。}
+\readerglossentry{Sicilia / Trinacria}{西西里／特里纳克里亚}{西西里和特里纳克里亚是同一岛屿的两种名称。特洛伊人航程中的重要中途地。安喀塞斯死于这里，埃涅阿斯后来又在此举行周年祭赛，并让部分同伴留下定居。}
+\readerglossentry{Troia / Ilium}{特洛伊／伊利乌姆}{埃涅阿斯的故乡，特洛伊和伊利乌姆是这座城市的两个名称。特洛伊战争结束时被希腊人攻陷。}
+\end{multicols}
+\endgroup

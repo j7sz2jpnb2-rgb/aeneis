@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-07",
+  "rules": [
+    {
+      "label": "Virgil’s Aeneid: Books I–VI",
+      "italic": true
+    },
+    {
+      "label": "经 DCC 汇录",
+      "url": "https://dcc.dickinson.edu/vergil-aeneid/vergil-aeneid-ii-506-525"
+    },
+    {
+      "label": "Virgil, Aeneid, 4.1–299",
+      "url": "https://doi.org/10.11647/OBP.0023",
+      "italic": true
+    },
+    {
+      "label": "Gildenhard 2012，评注4.169—172",
+      "url": "https://doi.org/10.11647/OBP.0023"
+    },
+    {
+      "label": "《埃涅阿斯纪评注》，评8.670，Perseus 数字本",
+      "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0051:book=8&force=y"
+    },
+    {
+      "label": "Quisquis in arma vocas: Turnus and Jupiter in the Aeneid",
+      "url": "https://doi.org/10.1017/S0066477400000551"
+    },
+    {
+      "label": "Antichthon",
+      "italic": true
+    },
+    {
+      "label": "Eimmart: the death of Turnus",
+      "url": "https://dcc.dickinson.edu/images/eimmart-death-turnus"
+    },
+    {
+      "label": "老普林尼《博物志》11.150",
+      "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Pliny_the_Elder/11*.html"
+    },
+    {
+      "label": "老普林尼《博物志》8.165",
+      "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Pliny_the_Elder/8*.html"
+    }
+  ]
+}

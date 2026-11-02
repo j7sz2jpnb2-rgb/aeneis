@@ -1,0 +1,240 @@
+% 当前成书排版定义。
+
+\documentclass[10pt,twoside,openany,fontset=none]{ctexbook}
+\usepackage[paperwidth=185mm,paperheight=260mm,inner=18mm,outer=14mm,top=17mm,bottom=19mm,headheight=7mm,headsep=4mm,footskip=9mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{setspace}
+\usepackage{xurl}
+\usepackage[hidelinks,unicode,pdfencoding=auto]{hyperref}
+\usepackage{bookmark}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage{multicol}
+\usepackage{needspace}
+\newfontfamily\greekfont{DejaVu Serif}
+
+\definecolor{accent}{HTML}{43545A}
+\definecolor{softgray}{HTML}{697176}
+\definecolor{rulegray}{HTML}{A8ADAF}
+\definecolor{footgray}{HTML}{596166}
+
+% 字体按可用性自动选择；不随源码包分发字体文件。
+% Linux 优先锁定静态 EB Garamond TTF，避免 fontconfig 将同名字体解析到 WOFF/变量字体而使 xdvipdfmx 失败。
+\IfFileExists{/usr/share/fonts/truetype/ebgaramond/EBGaramond12-Regular.ttf}{%
+  \setmainfont[
+    Path=/usr/share/fonts/truetype/ebgaramond/,
+    UprightFont=EBGaramond12-Regular.ttf,
+    ItalicFont=EBGaramond12-Italic.ttf,
+    BoldFont=EBGaramond12-Bold.ttf
+  ]{EBGaramond12-Regular.ttf}
+  \newfontfamily\latinfont[
+    Path=/usr/share/fonts/truetype/ebgaramond/,
+    UprightFont=EBGaramond12-Regular.ttf,
+    ItalicFont=EBGaramond12-Italic.ttf,
+    BoldFont=EBGaramond12-Bold.ttf
+  ]{EBGaramond12-Regular.ttf}
+}{%
+  \IfFontExistsTF{EB Garamond}{%
+    \setmainfont{EB Garamond}
+    \newfontfamily\latinfont{EB Garamond}
+  }{%
+    \setmainfont{TeX Gyre Pagella}
+    \newfontfamily\latinfont{TeX Gyre Pagella}
+  }%
+}
+
+\IfFontExistsTF{Noto Serif CJK SC}{%
+  \setCJKmainfont{Noto Serif CJK SC}[BoldFont=Noto Serif CJK SC Bold,ItalicFont=Noto Serif CJK SC]
+  \setCJKsansfont{Noto Sans CJK SC}[BoldFont=Noto Sans CJK SC Bold]
+  \newCJKfontfamily\titlecjk{Noto Serif CJK SC}[BoldFont=Noto Serif CJK SC Bold]
+  \newCJKfontfamily\sanscjk{Noto Sans CJK SC}[BoldFont=Noto Sans CJK SC Bold]
+}{%
+  \IfFontExistsTF{Source Han Serif SC}{%
+    \setCJKmainfont{Source Han Serif SC}[BoldFont=Source Han Serif SC Bold,ItalicFont=Source Han Serif SC]
+    \setCJKsansfont{Source Han Sans SC}[BoldFont=Source Han Sans SC Bold]
+    \newCJKfontfamily\titlecjk{Source Han Serif SC}[BoldFont=Source Han Serif SC Bold]
+    \newCJKfontfamily\sanscjk{Source Han Sans SC}[BoldFont=Source Han Sans SC Bold]
+  }{%
+    \setCJKmainfont{FandolSong}
+    \setCJKsansfont{FandolHei}
+    \newCJKfontfamily\titlecjk{FandolSong}
+    \newCJKfontfamily\sanscjk{FandolHei}
+  }%
+}
+\IfFontExistsTF{AR PL Mingti2L Big5}{%
+  \setCJKfallbackfamilyfont{\CJKrmdefault}[AutoFakeBold]{AR PL Mingti2L Big5}
+  \setCJKfallbackfamilyfont{\CJKsfdefault}[AutoFakeBold]{AR PL Mingti2L Big5}
+  \setCJKfallbackfamilyfont{titlecjk}[AutoFakeBold]{AR PL Mingti2L Big5}
+  \setCJKfallbackfamilyfont{sanscjk}[AutoFakeBold]{AR PL Mingti2L Big5}
+}{}
+\xeCJKsetup{AutoFallBack=true}
+\IfFontExistsTF{Noto Sans CJK SC}{%
+  \IfFontExistsTF{Noto Sans CJK SC Medium}{%
+    \newCJKfontfamily\glosscjk{Noto Sans CJK SC}[BoldFont=Noto Sans CJK SC Medium]%
+  }{\newCJKfontfamily\glosscjk{Noto Sans CJK SC}[BoldFont=Noto Sans CJK SC Bold]}
+}{%
+  \IfFontExistsTF{Source Han Sans SC}{%
+    \IfFontExistsTF{Source Han Sans SC Medium}{%
+      \newCJKfontfamily\glosscjk{Source Han Sans SC}[BoldFont=Source Han Sans SC Medium]%
+    }{\newCJKfontfamily\glosscjk{Source Han Sans SC}[BoldFont=Source Han Sans SC Bold]}
+  }{%
+    \newCJKfontfamily\glosscjk{FandolHei}
+  }%
+}
+
+
+% 附录采用协调的无衬线字族；优先使用真实 Medium 中文字重。
+\IfFontExistsTF{TeX Gyre Heros}{%
+  \newfontfamily\glosslatin{TeX Gyre Heros}%
+}{\IfFontExistsTF{Noto Sans}{%
+  \newfontfamily\glosslatin{Noto Sans}%
+}{\newcommand{\glosslatin}{\sffamily}}}
+
+% 统一人名中的中文间隔号：固定使用拉丁字体的 U+00B7，避免 CJK 字体映射为日文中点“・”。
+\newcommand{\nameperiod}{{\titlecjk ·}}
+
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\emergencystretch=2em
+% 已知输出例程会产生小于 3pt 的纵向 vbox 溢出；视觉预检确认无裁切。
+% 仅抑制这一级别的提示，更大的纵向溢出仍会报告。
+\vfuzz=3pt
+\raggedbottom
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\clubpenalty=8000
+\widowpenalty=8000
+\displaywidowpenalty=8000
+
+\hypersetup{
+  pdftitle={埃涅阿斯纪},
+  pdfauthor={Novelist}, % 用户确认公开署名；豆瓣数字ID为252994365。
+  pdfsubject={中文自由体诗译本与注释},
+  pdfcreator={XeLaTeX}
+}
+
+\fancypagestyle{running}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0.25pt}
+  \renewcommand{\headrule}{\hbox to\headwidth{\color{rulegray}\leaders\hrule height \headrulewidth\hfill}}
+  \fancyhead[LE]{\color{softgray}\sffamily\fontsize{7.8}{9}\selectfont\thepage}
+  \fancyhead[CE]{\color{softgray}\sanscjk\fontsize{7.8}{9}\selectfont 埃涅阿斯纪}
+  \fancyhead[CO]{\color{softgray}\sanscjk\fontsize{7.8}{9}\selectfont\nouppercase{\rightmark}}
+  \fancyhead[RO]{\color{softgray}\sffamily\fontsize{7.8}{9}\selectfont\thepage}
+}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0.25pt}
+  \renewcommand{\headrule}{\hbox to\headwidth{\color{rulegray}\leaders\hrule height \headrulewidth\hfill}}
+  \fancyhead[LE]{\color{softgray}\sffamily\fontsize{7.8}{9}\selectfont\thepage}
+  \fancyhead[CE]{\color{softgray}\sanscjk\fontsize{7.8}{9}\selectfont 埃涅阿斯纪}
+  \fancyhead[CO]{\color{softgray}\sanscjk\fontsize{7.8}{9}\selectfont\nouppercase{\rightmark}}
+  \fancyhead[RO]{\color{softgray}\sffamily\fontsize{7.8}{9}\selectfont\thepage}
+}
+\fancypagestyle{chapterstart}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[C]{\color{softgray}\sffamily\fontsize{8}{9}\selectfont\thepage}
+}
+\fancypagestyle{frontplain}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[C]{\color{softgray}\sffamily\fontsize{8}{9}\selectfont\thepage}
+}
+\pagestyle{running}
+\renewcommand{\contentsname}{目录}
+\setcounter{tocdepth}{0}
+\renewcommand{\cftchapfont}{\normalfont\titlecjk\color{accent}}
+\renewcommand{\cftchappagefont}{\normalfont\latinfont\color{softgray}}
+\renewcommand{\cftchapleader}{\cftdotfill{2.2}}
+\setlength{\cftbeforechapskip}{7pt}
+\setlength{\cftchapindent}{0pt}
+\setlength{\cftchapnumwidth}{0pt}
+
+\makeatletter
+\newcommand{\verseline}[2]{%
+  \par\noindent
+  \begingroup
+  \fontsize{10.2pt}{13.65pt}\selectfont
+  \hangindent=3.55em\hangafter=1
+  % 为提高扫读速度，所有页的原诗行号统一置于正文左侧。
+  \llap{\makebox[2.75em][r]{\sanscjk\fontsize{7.4pt}{9pt}\selectfont\color{softgray}#1}\hspace{0.8em}}%
+  #2\par
+  \endgroup
+  \penalty150
+}
+
+\newcommand{\bookchapter}[3]{%
+  \clearpage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{#1}
+  \markboth{#1}{#1}
+  \thispagestyle{chapterstart}
+  \vspace*{19mm}
+  \begin{center}
+    {\latinfont\fontsize{10}{12}\selectfont\color{softgray}\addfontfeatures{LetterSpace=12} #2\par}
+    \vspace{6mm}
+    {\titlecjk\bfseries\fontsize{22}{28}\selectfont\color{accent}#1\par}
+    \vspace{5mm}
+  \end{center}
+  \vspace{11mm}
+}
+
+\newcommand{\bookend}[1]{%
+  \par\vspace{8mm}
+  \begin{center}
+    {\sanscjk\fontsize{8.5}{10}\selectfont\color{softgray}#1}
+  \end{center}
+  \par\vspace{5mm}
+}
+
+\newcounter{refsection}
+\newcommand{\bookrefs}{%
+  \refstepcounter{refsection}
+  \phantomsection
+  \pdfbookmark[1]{校注参考}{refs.\therefsection}
+  \par\vspace{5mm}
+  {\color{rulegray}\rule{\linewidth}{0.35pt}\par}
+  \vspace{3mm}
+  {\sanscjk\bfseries\fontsize{10.5}{13}\selectfont\color{accent}校注参考\par}
+  \vspace{2mm}
+}
+
+\newcommand{\annotation}[1]{%
+  \par\noindent
+  \begingroup
+  \fontsize{8.55pt}{11.5pt}\selectfont\color{softgray}
+  \hangindent=1.4em\hangafter=1
+  \llap{\hbox to 1.1em{\hfil\textcolor{rulegray}{•}}\hspace{0.3em}}#1\par
+  \endgroup
+  \vspace{0.7mm}
+}
+\makeatother
+
+\makeatletter
+% 字号、行距与颜色保持到脚注段落结束；不重定义 footnote，以保留链接及可选参数。
+\renewcommand\@makefntext[1]{%
+  \begingroup
+  \setstretch{1}%
+  \fontsize{8.35pt}{11.15pt}\selectfont\color{footgray}%
+  \parindent 1.5em
+  \noindent
+  \hb@xt@1.5em{\hss\@makefnmark\hspace{0.35em}}#1\par
+  \endgroup}
+\makeatother
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\setlength{\footnotesep}{5.2pt}
+\setlength{\skip\footins}{8pt plus 2pt minus 2pt}
+% 保持单条脚注完整；脚注与其标记必要时整体移至下一页。
+\interfootnotelinepenalty=10000
+% 页首脚注颜色基准必须在 footins 盒子进入输出例程后重新设置。
+% 避免整条脚注因分页延迟而丢失原来的 color-special 状态。
+\renewcommand{\footnoterule}{\kern-3pt\begingroup\color{rulegray}\hrule width 24mm height 0.35pt\endgroup\kern 6pt\color{footgray}}
+
+\input{edition_assets.tex}

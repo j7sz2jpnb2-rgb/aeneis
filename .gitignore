@@ -1,0 +1,40 @@
+# LaTeX build files
+build/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.xdv
+
+# Final compiled book PDFs (only asset input PDFs are tracked in repo)
+/main.pdf
+/main_body.pdf
+/build/*.pdf
+Aeneid-zh*.pdf
+Aeneis*.pdf
+*.pdf.tmp
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Review & historical audit reports
+更替记录/
+*审查报告*
+*交接检查*.json
+01_本轮已写回的正文修改.md
+
+# OS / Editor temporary files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/

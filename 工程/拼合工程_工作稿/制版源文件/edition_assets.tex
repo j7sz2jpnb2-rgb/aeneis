@@ -1,0 +1,129 @@
+% 当前地图、卷首图、目录与书签机制。
+
+\graphicspath{{assets/plates/}{assets/maps/}}
+
+\expandafter\def\csname platefile1\endcsname{book-01.pdf}
+\expandafter\def\csname platefile2\endcsname{book-02.pdf}
+\expandafter\def\csname platefile3\endcsname{book-03.pdf}
+\expandafter\def\csname platefile4\endcsname{book-04.pdf}
+\expandafter\def\csname platefile5\endcsname{book-05.pdf}
+\expandafter\def\csname platefile6\endcsname{book-06.pdf}
+\expandafter\def\csname platefile7\endcsname{book-07.pdf}
+\expandafter\def\csname platefile8\endcsname{book-08.pdf}
+\expandafter\def\csname platefile9\endcsname{book-09.pdf}
+\expandafter\def\csname platefile10\endcsname{book-10.pdf}
+\expandafter\def\csname platefile11\endcsname{book-11.pdf}
+\expandafter\def\csname platefile12\endcsname{book-12.pdf}
+
+
+\input{content/plate_captions_current.tex}
+
+\newcommand{\platefile}[1]{\csname platefile#1\endcsname}
+\newcommand{\platetitle}[1]{\csname platetitle#1\endcsname}
+
+\makeatletter
+\newcommand{\manualtocchapter}[2]{%
+  \addtocontents{toc}{\protect\contentsline{chapter}{#1}{\thepage}{#2}\protected@file@percent}%
+}
+\makeatother
+
+\newcommand{\mappage}[3]{%
+  \clearpage
+  \phantomsection
+  \pdfbookmark[0]{#2}{map.#3}%
+  \manualtocchapter{#2}{map.#3.0}%
+  \markboth{#2}{#2}%
+  \thispagestyle{chapterstart}%
+  \AddToShipoutPictureBG*{\AtPageLowerLeft{%
+    % 地图 PDF 默认按右页定位；左页整体左移 4 mm，使装订侧仍留 18 mm。
+    \ifodd\value{page}\else\hspace*{-4mm}\fi
+    \includegraphics[width=\paperwidth]{#1}%
+  }}%
+  \null
+  \clearpage
+}
+
+\newcommand{\platecontent}[3]{%
+  \thispagestyle{chapterstart}
+  \pdfbookmark[1]{卷首画：#3}{plate.book.#1}%
+  \markboth{#3}{#3}%
+  \vspace*{6mm}
+  \begin{center}
+    {\latinfont\fontsize{9.5}{11}\selectfont\color{softgray}\addfontfeatures{LetterSpace=11} #2\par}
+    \vspace{5.5mm}
+    \includegraphics[width=121mm,height=166mm,keepaspectratio]{\platefile{#1}}\par
+    \vspace{5mm}
+    {\titlecjk\bfseries\fontsize{11.5}{15}\selectfont\color{accent}\platetitle{#1}\par}
+    \vspace{2.2mm}
+    {\sanscjk\fontsize{7.1}{9.5}\selectfont\color{softgray}
+      \platecredit\par}
+  \end{center}
+}
+
+\renewcommand{\bookchapter}[3]{%
+  \ifstrequal{#3}{1}{%
+    \mappage{strabo-world.pdf}{地图 1：斯特拉波所述的世界}{strabo}%
+    \mappage{aeneas-voyage.pdf}{地图 2：从特洛伊到拉提乌姆}{voyage}%
+  }{}%
+  \ifstrequal{#3}{7}{%
+    \mappage{latium-tiber.pdf}{地图 3：拉提乌姆与台伯河}{latium}%
+  }{}%
+  \clearpage
+  \phantomsection
+  \pdfbookmark[0]{#1}{book.#3}%
+  \platecontent{#3}{#2}{\platetitle{#3}}%
+  \clearpage
+  \phantomsection
+  \pdfbookmark[1]{正文}{body.book.#3}%
+  \manualtocchapter{#1}{body.book.#3.1}%
+  \markboth{#1}{#1}%
+  \thispagestyle{chapterstart}%
+  \vspace*{19mm}
+  \begin{center}
+    {\latinfont\fontsize{10}{12}\selectfont\color{softgray}\addfontfeatures{LetterSpace=12} #2\par}
+    \vspace{6mm}
+    {\titlecjk\bfseries\fontsize{22}{28}\selectfont\color{accent}#1\par}
+    \vspace{5mm}
+  \end{center}
+  \vspace{11mm}
+}
+
+\newcommand{\creditheading}[1]{%
+  \par\Needspace{22mm}\addvspace{5mm}%
+  {\glosslatin\glosscjk\bfseries\fontsize{10.5}{14}\selectfont\color{accent}#1\par}%
+  \nopagebreak[4]\vspace{1.8mm}\nopagebreak[4]%
+}
+\newcommand{\creditline}[2]{%
+  \par\addvspace{0.7mm}\noindent%
+  \begin{minipage}[t]{18mm}%
+    \vspace{0pt}\glosslatin\glosscjk\fontsize{8.8}{13}\selectfont\color{softgray}#1\par%
+  \end{minipage}\hspace{4mm}%
+  \begin{minipage}[t]{\dimexpr\linewidth-22mm\relax}%
+    \vspace{0pt}\RaggedRight\glosslatin\glosscjk\fontsize{9}{13}\selectfont\color{black!90}#2\par%
+  \end{minipage}\par%
+}
+\newcommand{\illustrationcredits}{%
+  \clearpage\phantomsection%
+  \pdfbookmark[0]{插图与地图来源}{back.illustrations}%
+  \manualtocchapter{插图与地图来源}{back.illustrations.0}%
+  \markboth{插图与地图来源}{插图与地图来源}%
+  \thispagestyle{chapterstart}\vspace*{8mm}%
+  {\glosslatin\glosscjk\bfseries\fontsize{21.5}{27}\selectfont\color{accent}插图与地图来源\par}%
+  \vspace{4mm}%
+  {\setstretch{1}\glosslatin\glosscjk\fontsize{9}{13}\selectfont\color{black!90}\RaggedRight%
+  \input{content/illustration_credits_current.tex}}%
+}
+
+% Claude HTML 是末页设计源；以下 PDF 是云端排版流程可使用的中间渲染产物，并非交接输入前提。
+\newcommand{\editioncolophon}{%
+  \IfFileExists{assets/colophon.pdf}{%
+    \clearpage
+    \phantomsection
+    \pdfbookmark[0]{版本记}{back.colophon}%
+    \manualtocchapter{版本记}{back.colophon.0}%
+    \thispagestyle{empty}%
+    \AddToShipoutPictureBG*{\AtPageLowerLeft{%
+      \includegraphics[width=\paperwidth]{assets/colophon.pdf}}}%
+    \null\clearpage
+  }{\PackageWarningNoLine{edition}{Colophon PDF missing; draft only}}%
+}
