@@ -32,7 +32,22 @@ def brace_argument(text: str, opening: int):
 
 
 def plain_tex(text: str):
-    text = re.sub(r"\\textit\{([^{}]*)\}", r"\1", text)
+    while True:
+        m = re.search(r"\\href\{", text)
+        if not m:
+            break
+        url, idx1 = brace_argument(text, m.end() - 1)
+        if idx1 < len(text) and text[idx1] == "{":
+            body, idx2 = brace_argument(text, idx1)
+            text = text[:m.start()] + body + text[idx2:]
+        else:
+            break
+    while True:
+        m = re.search(r"\\textit\{", text)
+        if not m:
+            break
+        body, idx = brace_argument(text, m.end() - 1)
+        text = text[:m.start()] + body + text[idx:]
     text = text.replace(r"\textbackslash{}", "\\")
     text = text.replace(r"\textasciicircum{}", "^").replace(r"\textasciitilde{}", "~")
     for char in "&%$#_{}":
