@@ -1,0 +1,42 @@
+name: Compile Aeneis PDF
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install TeX Live and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-xetex \
+            texlive-lang-chinese \
+            texlive-latex-extra \
+            fonts-noto-cjk \
+            fonts-ebgaramond \
+            fonts-dejavu-core
+          pip install pypdf
+
+      - name: Compile Book PDF
+        run: |
+          cd 工程/拼合工程_工作稿/制版源文件
+          bash compile.sh
+
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Aeneis-Full-PDF
+          path: 工程/拼合工程_工作稿/制版源文件/build/main.pdf
+          retention-days: 30
